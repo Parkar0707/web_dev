@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Label & Dropdown Matcher</title>
+<style>
+:root{color-scheme:light dark;--bg:#f6f7f9;--card:#fff;--fg:#1d2430;--mut:#667085;--bd:#dfe3ea;--pri:#4f46e5;--prifg:#fff;--ok:#12805c;--okbg:#e6f6ef;--bad:#c0332b;--badbg:#fdecea;--warn:#8a5300;--warnbg:#fff4e0;--info:#2f5bb7;--infobg:#e8f0fe}
+@media (prefers-color-scheme:dark){:root{--bg:#14161a;--card:#1d2026;--fg:#e8eaee;--mut:#9aa3b2;--bd:#323743;--pri:#8b91ff;--prifg:#10122a;--ok:#4cd6a0;--okbg:#12281f;--bad:#ff8a80;--badbg:#321a19;--warn:#ffc266;--warnbg:#33260e;--info:#8ab4ff;--infobg:#17233b}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{font:13px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg);padding:10px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+.title{font-size:15px;font-weight:700}
+.tab{font-size:12px;color:var(--mut);margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;position:sticky;top:0;background:var(--bg);padding:4px 0;z-index:1}
+.tab b{color:var(--fg)} .host{opacity:.8;margin-left:4px}
+.status{padding:6px 8px;border-radius:8px;margin-bottom:8px;font-size:12px}
+.status.info{background:var(--infobg);color:var(--info)} .status.warn{background:var(--warnbg);color:var(--warn)} .status.bad{background:var(--badbg);color:var(--bad)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px;margin-bottom:10px}
+.hd{display:flex;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap}
+.grow{flex:1}
+.cntb,.pill{background:var(--bg);border:1px solid var(--bd);border-radius:999px;padding:0 7px;font-size:11px;color:var(--mut)}
+select,textarea,button{font:inherit;color:inherit}
+select{background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:2px 4px;max-width:130px}
+textarea{width:100%;min-height:130px;resize:vertical;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:7px;font:12.5px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre;overflow:auto}
+textarea:focus,select:focus,button:focus-visible{outline:2px solid var(--pri);outline-offset:1px}
+.seg{display:inline-flex;border:1px solid var(--bd);border-radius:7px;overflow:hidden}
+.seg button{border:0;background:var(--bg);padding:3px 9px;cursor:pointer;font-size:12px}
+.seg button.on{background:var(--pri);color:var(--prifg);font-weight:600}
+.acts,.foot{display:flex;gap:8px;margin-top:8px}
+.foot{margin-bottom:10px}
+.btn,.ghost{border:1px solid var(--bd);background:var(--card);border-radius:8px;padding:6px 12px;cursor:pointer;font-weight:600}
+.btn.pri{background:var(--pri);color:var(--prifg);border-color:var(--pri)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.ghost{padding:4px 9px;font-weight:500;font-size:12px}
+.hint{font-size:11.5px;color:var(--mut);margin-top:4px} .hint.warn{color:var(--warn)} .hint.ok{color:var(--ok)}
+.sw{font-size:12px;display:flex;gap:4px;align-items:center;cursor:pointer}
+.opts{display:grid;gap:4px} .opts label{display:flex;gap:6px;align-items:center;cursor:pointer} .opts i{color:var(--mut);font-size:11px}
+.res{margin-top:8px}
+.sum{font-weight:600;font-size:12px;padding:2px 0} .sum.ok{color:var(--ok)} .sum.bad{color:var(--bad)}
+.grp{border:1px solid var(--bd);border-radius:8px;padding:6px;margin-top:8px}
+.gh{font-weight:700;font-size:12px} .gh.ok{color:var(--ok)} .gh.bad{color:var(--bad)}
+.row{display:flex;gap:8px;align-items:flex-start;padding:3px 7px;border-radius:6px;margin-top:3px;background:var(--okbg);color:var(--ok)}
+.row.bad{background:var(--badbg);color:var(--bad)}
+.cnt{min-width:42px;font-weight:700;font-variant-numeric:tabular-nums}
+.txt{flex:1;color:var(--fg);word-break:break-word;white-space:pre-wrap}
+.loc{border:1px solid var(--bd);background:var(--card);border-radius:6px;cursor:pointer;padding:0 6px;font-size:12px;color:var(--fg)}
+.sub{margin:2px 0 0 50px;font-size:11.5px;color:var(--mut)}
+code{background:var(--bg);border:1px solid var(--bd);border-radius:4px;padding:0 4px;font:11.5px ui-monospace,Menlo,Consolas,monospace;color:var(--fg);white-space:pre-wrap}
+summary{cursor:pointer}
+body.sidebar .pp{display:none}
+body.popup .sb{display:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="ui.js"></script>
+<script src="sidebar.js"></script>
+</body>
+</html>
